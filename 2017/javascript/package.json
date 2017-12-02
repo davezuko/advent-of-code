@@ -1,0 +1,17 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Zukowski <zukoweb@gmail.com> (http://zuko.me)",
+  "license": "ISC",
+  "dependencies": {
+    "redash": "^0.23.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}

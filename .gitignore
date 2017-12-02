@@ -1,0 +1,10 @@
+.yarn-cache
+.npmrc
+.awcache
+*.iml
+*.log*
+.DS_Store
+.idea/
+coverage/
+dist/
+node_modules/

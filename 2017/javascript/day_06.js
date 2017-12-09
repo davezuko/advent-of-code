@@ -1,7 +1,9 @@
 const assert = require('assert')
 const _ = require('redash')
-
-const INPUT = [0, 5, 10, 0, 11, 14, 13, 4, 11, 8, 8, 7, 1, 4, 12, 11]
+const fs = require('fs')
+const INPUT = fs.readFileSync('../inputs/day_06.txt', 'utf8')
+  .split(' ')
+  .map(n => Number.parseInt(n))
 
 const findHighestBank = (banks) => {
   let highest = 0

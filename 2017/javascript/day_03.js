@@ -1,7 +1,7 @@
 const assert = require('assert')
 const _ = require('redash')
-
-const INPUT = 277678
+const fs = require('fs')
+const INPUT = fs.readFileSync('../inputs/day_03.txt', 'utf8')
 
 // Star #1
 // -----------------------------------------------
@@ -81,4 +81,3 @@ const exercise_02 = (target) => {
   return value
 }
 assert.equal(exercise_02(INPUT), 279138)
-console.log(exercise_02(INPUT))

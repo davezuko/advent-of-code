@@ -5,7 +5,36 @@ defmodule Day_02 do
       |> Enum.sum
   end
 
+  def compute_division_checksum([head | tail]) do
+    checksum = compute_division_checksum(head, tail)
+    if is_number(checksum) do
+      checksum
+    else
+      compute_division_checksum(tail)
+    end
+  end
+
+  defp compute_division_checksum(_a, []) do
+    nil
+  end
+
+  defp compute_division_checksum(a, [a | tail]) do
+    compute_division_checksum(a, tail)
+  end
+
+  defp compute_division_checksum(a, [b | tail]) do
+    [min | [max]] = Enum.sort([a, b])
+    if rem(max, min) == 0 do
+      div(max, min)
+    else
+      compute_division_checksum(a, tail)
+    end
+  end
+
   def exercise_02(input) do
+    input
+      |> Enum.map(&compute_division_checksum/1)
+      |> Enum.sum
   end
 end
 
@@ -23,3 +52,4 @@ input = file
   |> Enum.map(parse_row)
 
 IO.inspect Day_02.exercise_01(input)
+IO.inspect Day_02.exercise_02(input)

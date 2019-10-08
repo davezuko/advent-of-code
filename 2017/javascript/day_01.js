@@ -6,7 +6,7 @@ const INPUT = fs.readFileSync('../inputs/day_01.txt', 'utf8')
 
 // Star #1
 // -----------------------------------------------
-const exercise_01 = _.pipe([
+const star_01 = _.pipe([
   _.split(''),
   _.map(parseInt),
   xs => xs.filter((n, i) => {
@@ -16,7 +16,7 @@ const exercise_01 = _.pipe([
   _.sum,
 ])
 
-assert.equal(exercise_01(INPUT), 1253)
+assert.equal(star_01(INPUT), 1253)
 
 // Star #2
 // -----------------------------------------------

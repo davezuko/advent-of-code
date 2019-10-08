@@ -8,7 +8,7 @@ const INPUT = fs.readFileSync('../inputs/day_05.txt', 'utf8')
 
 // Star #1
 // -----------------------------------------------
-const exercise_01 = ([...input]) => {
+const star_01 = ([...input]) => {
   let idx = jumps = 0
   while (idx < input.length) {
     const nextIdx = idx + input[idx]
@@ -18,8 +18,8 @@ const exercise_01 = ([...input]) => {
   return jumps
 }
 
-assert.equal(exercise_01([0, 3, 0, 1, -3]), 5)
-assert.equal(exercise_01(INPUT), 387096)
+assert.equal(star_01([0, 3, 0, 1, -3]), 5)
+assert.equal(star_01(INPUT), 387096)
 
 // Star #2
 // -----------------------------------------------

@@ -20,7 +20,7 @@ defmodule Day_01 do
       |> Enum.sum
   end
 
-  def exercise_01(input) do
+  def star_01(input) do
     with_adjacent_sibling(input)
       |> sum_matching_siblings
   end
@@ -37,5 +37,5 @@ input = file
   |> String.split("", trim: true)
   |> Enum.map(&String.to_integer/1)
 
-IO.inspect Day_01.exercise_01(input) # 1253
+IO.inspect Day_01.star_01(input) # 1253
 IO.inspect Day_01.exercise_02(input) # 1278

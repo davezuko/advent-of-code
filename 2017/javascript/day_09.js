@@ -55,21 +55,21 @@ const consumeGarbage = (pos, chars) => {
 
 // Star #1
 // -----------------------------------------------
-const exercise_01 = (input) => [consumeGroup(1, input)[0]]
+const star_01 = (input) => [consumeGroup(1, input)[0]]
 
-assert.deepEqual(exercise_01('{}'), [ [] ])
-assert.deepEqual(exercise_01('{{{}}}'), [ [ [ [] ] ] ])
-assert.deepEqual(exercise_01('{{}, {}}'), [ [ [], [] ] ])
-assert.deepEqual(exercise_01('{<{}, {}, {{}}>}'), [ [] ])
-assert.equal(getGroupValue(exercise_01('{}')), 1)
-assert.equal(getGroupValue(exercise_01('{{{}}}')), 6)
-assert.equal(getGroupValue(exercise_01('{{},{}}')), 5)
-assert.equal(getGroupValue(exercise_01('{{<ab>},{<ab>},{<ab>},{<ab>}}')), 9)
-assert.equal(getGroupValue(exercise_01('{{<!!>},{<!!>},{<!!>},{<!!>}}')), 9)
-assert.equal(getGroupValue(exercise_01('{{<a!>},{<a!>},{<a!>},{<ab>}}')), 3)
+assert.deepEqual(star_01('{}'), [ [] ])
+assert.deepEqual(star_01('{{{}}}'), [ [ [ [] ] ] ])
+assert.deepEqual(star_01('{{}, {}}'), [ [ [], [] ] ])
+assert.deepEqual(star_01('{<{}, {}, {{}}>}'), [ [] ])
+assert.equal(getGroupValue(star_01('{}')), 1)
+assert.equal(getGroupValue(star_01('{{{}}}')), 6)
+assert.equal(getGroupValue(star_01('{{},{}}')), 5)
+assert.equal(getGroupValue(star_01('{{<ab>},{<ab>},{<ab>},{<ab>}}')), 9)
+assert.equal(getGroupValue(star_01('{{<!!>},{<!!>},{<!!>},{<!!>}}')), 9)
+assert.equal(getGroupValue(star_01('{{<a!>},{<a!>},{<a!>},{<ab>}}')), 3)
 
 // Star #2
 // -----------------------------------------------
 const exercise_02 = (input) => consumeGroup(1, input)[2].length
 
-assert.equal(getGroupValue(exercise_01(INPUT)), 17537)
+assert.equal(getGroupValue(star_01(INPUT)), 17537)

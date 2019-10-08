@@ -22,13 +22,13 @@ const computeLeastGreatestChecksum = _.pipe([
   xs => _.last(xs) - _.head(xs),
 ])
 
-const exercise_01 = _.pipe([
+const star_01 = _.pipe([
   splitRows,
   _.map(_.pipe([parseRow, computeLeastGreatestChecksum])),
   _.sum,
 ])
 
-assert.equal(exercise_01(INPUT), 32020)
+assert.equal(star_01(INPUT), 32020)
 
 // Star #2
 // -----------------------------------------------

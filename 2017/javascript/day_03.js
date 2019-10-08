@@ -14,7 +14,7 @@ function *genSpiralLayers () {
   }
 }
 
-const exercise_01 = (target) => {
+const star_01 = (target) => {
   let depth = 0, layer
   for (layer of genSpiralLayers()) {
     if (_.last(layer) >= target) break
@@ -30,11 +30,11 @@ const exercise_01 = (target) => {
   return lateralOffset + depth
 }
 
-assert.equal(exercise_01(1), 0)
-assert.equal(exercise_01(12), 3)
-assert.equal(exercise_01(23), 2)
-assert.equal(exercise_01(1024), 31)
-assert.equal(exercise_01(277678), 475)
+assert.equal(star_01(1), 0)
+assert.equal(star_01(12), 3)
+assert.equal(star_01(23), 2)
+assert.equal(star_01(1024), 31)
+assert.equal(star_01(277678), 475)
 
 // Star #2
 // -----------------------------------------------

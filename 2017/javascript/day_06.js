@@ -32,10 +32,10 @@ const findCycle = ([...input]) => {
 
 // Star #1
 // -----------------------------------------------
-const exercise_01 = (input) => findCycle(input)[0]
+const star_01 = (input) => findCycle(input)[0]
 
-assert.equal(exercise_01([0, 2, 7, 0]), 5)
-assert.equal(exercise_01(INPUT), 7864)
+assert.equal(star_01([0, 2, 7, 0]), 5)
+assert.equal(star_01(INPUT), 7864)
 
 
 // Star #2

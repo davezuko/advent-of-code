@@ -1,5 +1,5 @@
 defmodule Day_02 do
-  def exercise_01(input) do
+  def star_01(input) do
     input
       |> Enum.map(&(Enum.max(&1) - Enum.min(&1)))
       |> Enum.sum
@@ -51,5 +51,5 @@ input = file
   |> String.split("\n")
   |> Enum.map(parse_row)
 
-IO.inspect Day_02.exercise_01(input)
+IO.inspect Day_02.star_01(input)
 IO.inspect Day_02.exercise_02(input)

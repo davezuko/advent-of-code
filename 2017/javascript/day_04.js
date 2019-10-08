@@ -9,17 +9,17 @@ const INPUT = fs.readFileSync('../inputs/day_04.txt', 'utf8')
 // Star #1
 // -----------------------------------------------
 const isValidPassphrase = phrase => new Set(phrase.split(' ')).size === phrase.split(' ').length
-const exercise_01 = _.pipe([_.split('\n'), _.filter(isValidPassphrase), _.length])
+const star_01 = _.pipe([_.split('\n'), _.filter(isValidPassphrase), _.length])
 
-assert.equal(exercise_01('aa bb cc dd ee'), 1)
-assert.equal(exercise_01('aa bb cc dd aa'), 0)
-assert.equal(exercise_01('aa bb cc dd aaa'), 1)
-assert.equal(exercise_01([
+assert.equal(star_01('aa bb cc dd ee'), 1)
+assert.equal(star_01('aa bb cc dd aa'), 0)
+assert.equal(star_01('aa bb cc dd aaa'), 1)
+assert.equal(star_01([
   'aa bb cc dd ee',
   'aa bb cc dd aa',
   'aa bb cc dd aaa',
 ].join('\n')), 2)
-assert.equal(exercise_01(INPUT), 386)
+assert.equal(star_01(INPUT), 386)
 
 // Star #2
 // -----------------------------------------------

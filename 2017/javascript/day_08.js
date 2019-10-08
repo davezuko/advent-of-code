@@ -33,20 +33,20 @@ const runInstruction = (registers, { target, op, opAmt, cond }) => {
 
 // Star #1
 // -----------------------------------------------
-const exercise_01 = _.pipe([
+const star_01 = _.pipe([
   _.map(parseInstruction),
   instructions => _.reduce(runInstruction, new Map(), instructions),
   registers => Math.max(...registers.values()),
 ])
 
-assert.equal(exercise_01([
+assert.equal(star_01([
   'b inc 5 if a > 1',
   'a inc 1 if b < 5',
   'c dec -10 if a >= 1',
   'c inc -20 if c == 10',
 ]), 1)
 
-assert.equal(exercise_01(INPUT), 5215)
+assert.equal(star_01(INPUT), 5215)
 
 // Star #2
 // -----------------------------------------------

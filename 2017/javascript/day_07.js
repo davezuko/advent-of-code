@@ -34,12 +34,12 @@ const buildTree = nodes => {
 
 // Exercise 1
 // ------------------------------------
-const exercise_01 = input => {
+const star_01 = input => {
   return buildTree(input.split('\n').filter(Boolean).map(parseNode))
 }
 
 console.log('\nrunning...\n------------------')
-console.log(exercise_01(input))
+console.log(star_01(input))
 
 // Exercise 2
 // ------------------------------------

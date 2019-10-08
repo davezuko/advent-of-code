@@ -1,4 +1,4 @@
-(ns advent-of-code.year_2017.day_01
+(ns advent-of-code.year_2018.day_01
   (:require [clojure.string :as str] [fs]))
 
 (defn compute-frequencies [input]

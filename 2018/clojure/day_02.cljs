@@ -1,4 +1,4 @@
-(ns advent-of-code.year_2017.day_02
+(ns advent-of-code.year_2018.day_02
   (:require [clojure.string :as str] [fs] [path]))
 
 (defn lines [str] (remove str/blank? (str/split-lines str)))

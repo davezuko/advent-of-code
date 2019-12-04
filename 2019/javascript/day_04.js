@@ -4,20 +4,23 @@ const LOW = 156218
 const HIGH = 652527
 
 function star_1() {
-  return foldl(passwords(), 0, (acc, pw) => {
-    return isAscending(pw) && hasDigitPair(pw) ? acc + 1 : acc
-  })
+  let matches = 0
+  for (const pw of passwords()) {
+    if (isAscending(pw) && hasDigitPair(pw)) {
+      matches++
+    }
+  }
+  return matches
 }
 
 function star_2() {
-  return foldl(passwords(), 0, (acc, pw) => {
-    return isAscending(pw) && hasExactDigitPair(pw) ? acc + 1 : acc
-  })
-}
-
-function foldl(iter, acc, fn) {
-  for (let i of iter) acc = fn(acc, i)
-  return acc
+  let matches = 0
+  for (const pw of passwords()) {
+    if (isAscending(pw) && hasExactDigitPair(pw)) {
+      matches++
+    }
+  }
+  return matches
 }
 
 function *passwords() {
@@ -25,7 +28,12 @@ function *passwords() {
 }
 
 function isAscending(pw) {
-  return pw.split("").sort().join("") === pw
+  for (let i = 1; i < pw.length; i++) {
+    if (pw[i] < pw[i - 1]) {
+      return false
+    }
+  }
+  return true
 }
 
 function pairs(pw) {

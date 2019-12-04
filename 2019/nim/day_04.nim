@@ -1,7 +1,17 @@
-import strutils, re
+import strutils
 
 const low  = 156218
 const high = 652527
+
+iterator sequences(str: string): seq[char] =
+  var i = 0
+  while i < str.high:
+    let ch = str[i]
+    var sequence: seq[char]
+    while i <= str.high and str[i] == ch:
+      sequence.add(ch)
+      i += 1
+    yield sequence
 
 func ascending(num: int): bool =
   let str = $num
@@ -11,11 +21,13 @@ func ascending(num: int): bool =
   return true
 
 func has_pair(num: int): bool =
-  contains($num, re"(\d)\1")
+  for sequence in sequences($num):
+    if len(sequence) >= 2: return true
+  false
 
-proc has_exact_pair(num: int): bool =
-  for group in find_all($num, re"(\d)(\1+)"):
-    if len(group) == 2: return true
+func has_exact_pair(num: int): bool =
+  for sequence in sequences($num):
+    if len(sequence) == 2: return true
   false
 
 func star_1(low, high: int): int =
@@ -24,11 +36,11 @@ func star_1(low, high: int): int =
     if ascending(pw) and has_pair(pw):
       result += 1
 
-proc star_2(low, high: int): int =
+func star_2(low, high: int): int =
   result = 0
   for pw in low..high:
     if ascending(pw) and has_exact_pair(pw):
       result += 1
 
-do_assert star_1(low, high) == 1694
-do_assert star_2(low, high) == 1148
+echo "star 1: " & $star_1(low, high)
+echo "star 2: " & $star_2(low, high)

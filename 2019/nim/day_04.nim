@@ -13,34 +13,36 @@ iterator sequences(str: string): seq[char] =
       i += 1
     yield sequence
 
-func ascending(num: int): bool =
-  let str = $num
+func ascending(str: string): bool =
   for i in str.low..str.high - 1:
     if parse_int($str[i]) > parse_int($str[i + 1]):
       return false
   return true
 
-func has_pair(num: int): bool =
-  for sequence in sequences($num):
-    if len(sequence) >= 2: return true
-  false
+proc main(low, high: int): void =
+  var star_1 = 0
+  var star_2 = 0
 
-func has_exact_pair(num: int): bool =
-  for sequence in sequences($num):
-    if len(sequence) == 2: return true
-  false
+  for i in low..high:
+    let pw = $i
+    if not ascending(pw): continue
 
-func star_1(low, high: int): int =
-  result = 0
-  for pw in low..high:
-    if ascending(pw) and has_pair(pw):
-      result += 1
+    var found_pair = false
+    var found_exact_pair = false
+    for s in sequences(pw):
+      if len(s) == 2:
+        found_pair = true
+        found_exact_pair = true
+        break
+      if len(s) > 2:
+        found_pair = true
+        continue
+    if found_exact_pair:
+      star_1 += 1
+      star_2 += 1
+    elif found_pair:
+      star_1 += 1
+  echo "star 1: " & $star_1
+  echo "star 2: " & $star_2
 
-func star_2(low, high: int): int =
-  result = 0
-  for pw in low..high:
-    if ascending(pw) and has_exact_pair(pw):
-      result += 1
-
-echo "star 1: " & $star_1(low, high)
-echo "star 2: " & $star_2(low, high)
+main(low, high)

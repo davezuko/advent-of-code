@@ -1,11 +1,14 @@
-use std::io;
-use std::io::{BufRead};
+use std::fs::File;
+use std::io::{BufRead, BufReader};
 
-fn main() {
+pub fn run() {
+    let file = File::open("../inputs/day_01.txt").unwrap();
+    let reader = BufReader::new(file);
+
     let mut total_fuel = 0;
     let mut total_fuel_recursive = 0;
 
-    for line in io::stdin().lock().lines() {
+    for line in reader.lines() {
         let mass: i32 = line.unwrap().parse().unwrap();
         total_fuel += calculate_fuel(mass);
         total_fuel_recursive += calculate_fuel_recursive(mass);

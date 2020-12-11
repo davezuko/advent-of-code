@@ -7,7 +7,6 @@ const myInput = fs.readFileSync(
     "utf8",
 )
 
-
 interface Seat {
     row: number
     col: number
@@ -35,17 +34,23 @@ const getSeat = (desc: string): Seat => {
     return {
         row: row[0],
         col: col[0],
-        sid: row[0] * 8 + col[0]
+        sid: row[0] * 8 + col[0],
     }
 }
 
 const star_1 = (input: string) => {
-    const seats = input.split("\n").map(getSeat).sort((a, b) => a.sid - b.sid)
+    const seats = input
+        .split("\n")
+        .map(getSeat)
+        .sort((a, b) => a.sid - b.sid)
     return seats[seats.length - 1].sid
 }
 
 const star_2 = (input: string) => {
-    const seats = input.split("\n").map(getSeat).sort((a, b) => a.sid - b.sid)
+    const seats = input
+        .split("\n")
+        .map(getSeat)
+        .sort((a, b) => a.sid - b.sid)
     for (let i = 0; i < seats.length - 1; i++) {
         if (seats[i + 1].sid - seats[i].sid === 2) {
             return seats[i].sid + 1
